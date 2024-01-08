@@ -1,0 +1,22 @@
+html
+    head
+        title Add Workshop
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    h3 Add Workshop: 
+    p
+        | Title:
+        |
+        input#workshop_title(type="text" name="title")
+    button#add_workshop_button(onclick = "addWorkshop()") Add Workshop
+
+    script(src="/client.js")

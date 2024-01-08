@@ -1,0 +1,30 @@
+html
+    head
+        title Search Artworks
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    form(action="/artworksresults" method="GET")
+            p
+                | Title:
+                | 
+                input#artwork_title(type="text" name="title")
+            p
+                | Artist:
+                |
+                input#artwork_artist(type="text" name="artist")
+            p
+                | Category:
+                |
+                input#artwork_category(type="text" name="category")
+            button#search_button Search
+
+    script(src="/client.js")

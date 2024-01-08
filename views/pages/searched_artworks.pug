@@ -1,0 +1,33 @@
+html
+    head
+        title Matching Artworks
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    div#images(style="text-align: center;")
+        each artwork in artworks
+            a(href="/artworks/" + artwork._id)
+                img(src=`${artwork.Poster}` style="border: 5px solid #000000;" width="50%" height="60%")
+            br
+            br 
+            br
+            br
+            br
+
+    div(style="text-align: center;")
+        if current > 1
+            - let url = "/artworksresults?page=" + (current-1)
+            - if(qstring.length > 0){ url += "&" + qstring; }
+            a(href=url) Previous
+            | 
+        - url = "/artworksresults?page=" + (current+1)
+        - if(qstring.length > 0){ url += "&" + qstring; }
+        a(href=url) Next

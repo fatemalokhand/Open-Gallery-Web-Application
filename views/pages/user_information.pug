@@ -1,0 +1,60 @@
+html
+    head
+        title #{username}'s Profile
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+	
+    h1 Hello, #{username}!
+    br
+
+    h3 Account Type: #{type}
+			
+    if type === "artist"
+        p Since you are an artist, you can: 
+        p 
+            a(href="/addartwork") Add Artwork
+        p
+            a(href="/addworkshop") Add Workshop
+        button#change_to_patron_button(onclick = "changeAccount()") Change to Patron Account 
+    else 
+        button#change_to_artist_button(onclick = "changeAccount()") Change to Artist Account 
+
+    h3 Liked Artworks:
+    if likedArtworks.length == 0
+        p You have not liked any artworks. 
+    else 
+        each artwork in likedArtworks
+            a(href="/artworks/" + artwork._id) #{artwork.Title}
+            br
+
+    h3 Reviews You've Added:
+    if reviews.length == 0
+        p You have not added any reviews. 
+    else 
+        each review in reviews
+            p #{review}
+
+    h3 Artists You Follow:
+    if followingArtists.length == 0
+        p  You are not following any artists.
+    else 
+        each artist in followingArtists
+            a(href="/users/" + artist._id) #{artist.username}
+            br
+
+    h3 Notifications:
+    if notifications.length == 0
+        p  You do not have any notifications.
+    else 
+        each notification in notifications
+            p #{notification}
+
+    script(src="/client.js")

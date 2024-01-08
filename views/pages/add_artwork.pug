@@ -1,0 +1,42 @@
+html
+    head
+        title Add Artwork
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    h3 Add Artwork: 
+    p
+        | Title:
+        |
+        input#new_artwork_title(type="text" name="title")
+    p
+        | Year:
+        |
+        input#new_artwork_year(type="text" name="year")
+    p
+        | Category:
+        |
+        input#new_artwork_category(type="text" name="category")
+    p
+        | Medium:
+        |
+        input#new_artwork_medium(type="text" name="medium")
+    p
+        | Description:
+        |
+        input#new_artwork_description(type="text" name="description")
+    p
+        | Poster:
+        |
+        input#new_artwork_poster(type="text" name="poster")
+    button#add_artwork_button(onclick = "addArtwork()") Add Artwork
+
+    script(src="/client.js")

@@ -1,0 +1,46 @@
+body {
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/550/249/small_2x/abstract-pink-fluid-wave-background-free-vector.jpg');
+  background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Signika Negative', sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+#container1{
+  display: flex;
+  flex-basis: 10px;
+  gap: 0.625%;
+}
+
+a{
+  flex: 1;
+  text-decoration: none;
+  outline-color: transparent;
+  text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  line-height: 3;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: white;
+  color: black;
+}
+
+a:hover {
+  background: #ff87ab;
+}
+
+a:active {
+  background: rgb(212, 195, 195);
+  color: black;
+}

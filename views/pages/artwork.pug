@@ -1,0 +1,43 @@
+html
+    head
+        title #{artwork.Title}
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    h1(style="text-align: center;") #{artwork.Title}
+    div#image(style="text-align: center;")
+        img(src=`${artwork.Poster}` style="border: 5px solid #000000;" width="50%" height="60%")
+    p Title: #{artwork.Title}
+    p Artist: 
+        a(href="/users/" + uid) #{artwork.Artist}
+    p Year: #{artwork.Year}
+    p Category:
+        | 
+        a(href="/artworksresults?title=&artist=&category=" + artwork.Category) #{artwork.Category}
+    p Medium: #{artwork.Medium}
+    p Description: #{artwork.Description}
+
+    h3 Reviews: 
+    each review in artwork.Reviews
+        p #{review.text} - #{review.reviewer}
+
+    h2 Write a Review: 
+    input#review(type="textbox")
+    button#review_button(style='margin-right:16px' onclick = "addReview()") Add Review
+    |
+    button#remove_review_button(style='margin-right:16px' onclick = "removeReview()") Remove Review 
+
+    h3 Likes: #{artwork.Likes.length}
+    button#like_button(style='margin-right:16px' onclick = "addLike()") Like
+    |
+    button#unlike_button(style='margin-right:16px' onclick = "removeLike()") Unlike
+
+    script(src="/client.js")

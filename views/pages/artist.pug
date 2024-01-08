@@ -1,0 +1,44 @@
+html
+    head
+        title #{user.username}'s Profile
+        link(rel='stylesheet', href='/header_styles.css', type='text/css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Rubik&family=Signika+Negative:wght@500&display=swap" rel="stylesheet")
+body
+    include ../partials/headers
+    br
+
+    h1(style="text-align: center;") #{user.username}
+    br 
+    br 
+    div(style="text-align: center;")
+        button#follow_button(style='margin-right:16px' onclick = "followArtist()") Follow
+        |
+        button#unfollow_button(style='margin-right:16px' onclick = "unfollowArtist()") Unfollow 
+    br 
+    br
+    h3 #{user.username}'s Artworks:
+    div#images(style="text-align: center;")
+        each artwork in userArtworks
+            a(href="/artworks/" + artwork._id)
+                img(src=`${artwork.Poster}` style="border: 5px solid #000000;" width="50%" height="60%")
+            br
+            br 
+            br
+            br
+            br
+
+    h3 #{user.username}'s Workshops:
+    if user.workshops.length == 0
+        p This artist currently does not have any workshops.
+    else 
+        each workshop in user.workshops
+            p #{workshop}
+                |
+                button#enroll_button(style='margin-left:16px' onclick = "enrollInWorkshop()") Enroll
+
+    script(src="/client.js")

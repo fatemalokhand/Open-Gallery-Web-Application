@@ -1,0 +1,18 @@
+html
+    head
+        title Register Page
+        link(rel='stylesheet', href='/login_register_styles.css', type='text/css')
+body
+    form(action="/register" method="POST")
+        h1 User Registration
+        div
+            label(for="username") Username
+            input#username(type="textbox" name="username")
+        div
+            label(for="password") Password
+            input#password(type="password" name="password")
+        div
+            input#register_submit(type="submit" value="Register")
+        br
+        div(style="text-align: center;") 
+            a(href="/login") Already have an account? Log in!
